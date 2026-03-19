@@ -538,6 +538,82 @@
     }
 
     /* ── Responsive ── */
+    /* ── Activity Log ── */
+    .activity-item {
+      display: grid;
+      grid-template-columns: 140px 80px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      transition: background 0.1s;
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-item:hover { background: rgba(255,255,255,0.015); }
+    .activity-item.hidden { display: none; }
+
+    .activity-ts {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+
+    .activity-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      align-self: start;
+    }
+    .atype-git  { background: rgba(63,185,80,0.12);  color:var(--green);  border:1px solid rgba(63,185,80,0.3); }
+    .atype-file { background: rgba(88,166,255,0.12); color:var(--accent); border:1px solid rgba(88,166,255,0.3); }
+    .atype-bash { background: rgba(188,140,255,0.12);color:var(--purple); border:1px solid rgba(188,140,255,0.3); }
+
+    .activity-desc {
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .activity-file {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      margin-top: 3px;
+    }
+
+    .activity-empty {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .filter-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      font-family: var(--mono);
+      padding: 5px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.05em;
+    }
+    .filter-btn:hover { color: var(--white); border-color: var(--muted); }
+    .filter-btn.active {
+      background: rgba(88,166,255,0.12);
+      color: var(--accent);
+      border-color: rgba(88,166,255,0.4);
+    }
+
     @media (max-width: 900px) {
       .layout { grid-template-columns: 1fr; }
       aside { position: static; height: auto; }
@@ -584,6 +660,9 @@
       </a>
       <a href="#deploy" class="nav-item">
         <span class="dot" style="background:#e3b341)"></span> 배포 가이드
+      </a>
+      <a href="#activity" class="nav-item">
+        <span class="dot" style="background:var(--green)"></span> 활동 로그
       </a>
     </nav>
 
@@ -971,11 +1050,48 @@
       </div>
     </div>
 
+    <!-- Activity Log -->
+    <div class="section" id="activity">
+      <div class="section-header">
+        <span class="section-icon">&#128336;</span>
+        <h3 class="section-title">활동 로그</h3>
+        <span class="badge" id="activity-count">로딩 중...</span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+        <div style="font-size:12px; color:var(--muted);">
+          <span class="status-dot"></span>
+          PostToolUse 훅으로 자동 기록 중 —
+          <code>logs/activity.ndjson</code>
+        </div>
+        <button onclick="loadActivity()" style="
+          background:none; border:1px solid var(--border);
+          color:var(--muted); font-size:11px; padding:4px 12px;
+          border-radius:4px; cursor:pointer; font-family:var(--mono);
+          transition:all 0.15s;
+        " onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--muted)'">
+          &#8635; 새로고침
+        </button>
+      </div>
+
+      <!-- Filter bar -->
+      <div style="display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;" id="filter-bar">
+        <button class="filter-btn active" data-type="all"    onclick="filterActivity('all')">전체</button>
+        <button class="filter-btn"        data-type="git"    onclick="filterActivity('git')">git</button>
+        <button class="filter-btn"        data-type="file"   onclick="filterActivity('file')">파일</button>
+        <button class="filter-btn"        data-type="bash"   onclick="filterActivity('bash')">bash</button>
+      </div>
+
+      <div id="activity-list">
+        <div style="color:var(--muted); font-size:13px; padding:20px 0;">불러오는 중...</div>
+      </div>
+    </div>
+
   </main>
 </div>
 
 <script>
-  // Sidebar active link on scroll
+  // ── Sidebar active link on scroll ──
   const sections = document.querySelectorAll('.section');
   const navItems = document.querySelectorAll('.nav-item');
 
@@ -987,9 +1103,100 @@
         if (active) active.classList.add('active');
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.3 });
 
   sections.forEach(s => io.observe(s));
+
+  // ── Activity Log ──
+  let allEntries = [];
+  let currentFilter = 'all';
+
+  const TYPE_META = {
+    git:  { label: 'git',  icon: '⬆', cls: 'atype-git'  },
+    file: { label: 'file', icon: '📄', cls: 'atype-file' },
+    bash: { label: 'bash', icon: '⚡', cls: 'atype-bash' },
+  };
+
+  function formatTs(ts) {
+    try {
+      const d = new Date(ts);
+      const date = d.toLocaleDateString('ko-KR', { month:'2-digit', day:'2-digit' });
+      const time = d.toLocaleTimeString('ko-KR', { hour:'2-digit', minute:'2-digit', hour12: false });
+      return `${date} ${time}`;
+    } catch { return ts; }
+  }
+
+  function renderEntries(entries) {
+    const list = document.getElementById('activity-list');
+    if (!entries.length) {
+      list.innerHTML = '<div class="activity-empty">표시할 로그가 없습니다.</div>';
+      return;
+    }
+
+    // 최신순 정렬
+    const sorted = [...entries].sort((a, b) => new Date(b.ts) - new Date(a.ts));
+
+    list.innerHTML = sorted.map(e => {
+      const meta  = TYPE_META[e.type] || { label: e.type, icon: '•', cls: 'atype-bash' };
+      const fileEl = e.file
+        ? `<div class="activity-file">${e.file}</div>`
+        : (e.action === 'commit' ? `<div class="activity-file" style="color:var(--green)">#${e.hash || 'commit'}</div>` : '');
+
+      return `
+        <div class="activity-item" data-type="${e.type}">
+          <div class="activity-ts">${formatTs(e.ts)}</div>
+          <div>
+            <span class="activity-type ${meta.cls}">${meta.icon} ${meta.label}</span>
+          </div>
+          <div>
+            <div class="activity-desc">${e.desc || ''}</div>
+            ${fileEl}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function filterActivity(type) {
+    currentFilter = type;
+
+    // 버튼 상태 업데이트
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.type === type);
+    });
+
+    const filtered = type === 'all'
+      ? allEntries
+      : allEntries.filter(e => e.type === type);
+
+    renderEntries(filtered);
+  }
+
+  async function loadActivity() {
+    const list  = document.getElementById('activity-list');
+    const badge = document.getElementById('activity-count');
+    list.innerHTML = '<div style="color:var(--muted);font-size:13px;padding:20px 0;">불러오는 중...</div>';
+
+    try {
+      const res  = await fetch(`logs/activity.ndjson?t=${Date.now()}`);
+      const text = await res.text();
+
+      allEntries = text.trim().split('\n')
+        .filter(Boolean)
+        .map(line => { try { return JSON.parse(line); } catch { return null; } })
+        .filter(Boolean);
+
+      badge.textContent = `${allEntries.length}개 항목`;
+      filterActivity(currentFilter);
+
+    } catch (err) {
+      list.innerHTML = `<div class="activity-empty">로그 로드 실패: ${err.message}<br><small style="color:var(--muted)">GitHub Pages에서는 정상 동작합니다.</small></div>`;
+      badge.textContent = '오류';
+    }
+  }
+
+  // 페이지 로드 시 자동 실행
+  loadActivity();
 </script>
 
 </body>
