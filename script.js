@@ -137,9 +137,9 @@ function renderCV(cv) {
   const blocks = [
     { heading: '학력',            data: cv.education,         full: false },
     { heading: '개인전',          data: cv.soloExhibitions,   full: false },
+    { heading: '단체전 및 아트페어', data: cv.groupExhibitions, full: true, collapsible: true },
     { heading: '수상',            data: cv.awards,            full: false },
     { heading: '강의',            data: cv.teaching,          full: false },
-    { heading: '단체전 및 아트페어', data: cv.groupExhibitions, full: true, collapsible: true },
     { heading: '작품소장',        data: cv.collections,       full: true, grid: true },
   ];
 

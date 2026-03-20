@@ -850,7 +850,9 @@ footer {
     color: var(--dark);
   }
 
-  section { padding: 80px 24px; }
+  section { padding: 60px 24px; }
+  #cv { padding-bottom: 20px; }
+  #works { padding-top: 40px; }
   #hero { padding: 40px 24px; }
   .hero-scroll { display: none; }
   .work-year-badge { font-size: 3.5rem; }
