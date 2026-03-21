@@ -59,8 +59,7 @@ function renderIndex(data) {
       .flatMap(y => y.works.map(w => w.image))
       .filter(img => img && !img.startsWith('https://picsum'));
     const pool = allImages.length > 0 ? allImages : years.map(y => y.thumbnail);
-    const count = Math.min(pool.length, 3);
-    const picked = [...pool].sort(() => Math.random() - 0.5).slice(0, count);
+    const picked = [[...pool].sort(() => Math.random() - 0.5)[0]];
     picked.forEach(src => {
       const img = document.createElement('img');
       img.src = src;

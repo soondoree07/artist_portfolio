@@ -232,12 +232,8 @@ section {
 }
 
 .about-inner {
-  max-width: 1100px;
+  max-width: 780px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
 }
 
 .about-image {
@@ -824,8 +820,7 @@ footer {
   nav { padding: 20px 40px; }
   nav.scrolled { padding: 14px 40px; }
   section { padding: 100px 40px; }
-  .about-inner { grid-template-columns: 1fr; gap: 48px; }
-  .about-image { max-width: 480px; }
+
   .cv-grid { grid-template-columns: 1fr; }
   .work-item { grid-template-columns: 1fr; gap: 32px; }
   .work-item.reverse { direction: ltr; }
