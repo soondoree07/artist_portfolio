@@ -413,7 +413,16 @@
           "material": "Mixed Media",
           "size": "90×90cm",
           "description": "이십여 년 간 고수하던 화풍을 벗어 던지며 새로운 자아를 마주하는 자화상. 정(靜) 속에서 동(動)을 모색하는 작가 자신을 담았습니다.",
-          "image": "images/2022/Self portrait.jpg"
+          "image": "images/2022/Self portrait.jpg",
+          "group": "self-series"
+        },
+        {
+          "title": "Self Complacence",
+          "material": "Mixed Media",
+          "size": "90×90cm",
+          "description": "자기만족과 자기 안주 사이. 오랜 화풍 안에서 안주하던 과거의 자아를 직면하며, 또 다른 정중동의 시도를 예고합니다.",
+          "image": "images/2022/Self Complacence.jpg",
+          "group": "self-series"
         },
         {
           "title": "무릉도원",
@@ -427,28 +436,24 @@
           "material": "Mixed Media",
           "size": "60×60cm",
           "description": "연못 안에 있는 자들(pond'er)이 고민하는 자들(ponder)로 변하는 순간. 잠든 못을 깨우는 고기들의 작은 몸짓을 담았습니다.",
-          "image": "images/2022/pond'er.jpg"
+          "image": "images/2022/pond'er.jpg",
+          "group": "pond-series"
         },
         {
           "title": "somewhere deep 깊은곳 어딘가",
           "material": "Mixed Media",
           "size": "38×38cm",
           "description": "연못 깊은 곳 어딘가에서 고민하는 자들. 겉보기에 동요치 않는 연못이 이미 안으로부터 들끓고 있는 그 깊이를 표현했습니다.",
-          "image": "images/2022/somewhere deep 깊은곳 어딘가.jpg"
+          "image": "images/2022/somewhere deep 깊은곳 어딘가.jpg",
+          "group": "pond-series"
         },
         {
           "title": "바람결",
           "material": "Mixed Media",
           "size": "60×60cm",
           "description": "정적을 깨는 바람의 결. 잠든 연못 위로 스치는 바람처럼, 굳어 있던 연잎마저 흔드는 작은 동(動)이 일렁이기 시작합니다.",
-          "image": "images/2022/바람결.jpg"
-        },
-        {
-          "title": "Self Complacence",
-          "material": "Mixed Media",
-          "size": "90×90cm",
-          "description": "자기만족과 자기 안주 사이. 오랜 화풍 안에서 안주하던 과거의 자아를 직면하며, 또 다른 정중동의 시도를 예고합니다.",
-          "image": "images/2022/Self Complacence.jpg"
+          "image": "images/2022/바람결.jpg",
+          "group": "pond-series"
         }
       ]
     },
