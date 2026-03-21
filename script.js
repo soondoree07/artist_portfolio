@@ -52,14 +52,11 @@ function renderIndex(data) {
   setTextById('hero-name', artist.name);
   setTextById('hero-tagline', artist.tagline);
 
-  // Hero background – random work images
+  // Hero background – most recent year's thumbnail
   const heroBg = document.getElementById('hero-bg');
   if (heroBg) {
-    const allImages = years
-      .flatMap(y => y.works.map(w => w.image))
-      .filter(img => img && !img.startsWith('https://picsum'));
-    const pool = allImages.length > 0 ? allImages : years.map(y => y.thumbnail);
-    const picked = [[...pool].sort(() => Math.random() - 0.5)[0]];
+    const recentYear = years[0]; // hasRealWorks로 필터된 배열, 최신순 정렬 가정
+    const picked = [recentYear ? recentYear.thumbnail : null].filter(Boolean);
     picked.forEach(src => {
       const img = document.createElement('img');
       img.src = src;
