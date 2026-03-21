@@ -589,7 +589,7 @@ footer {
 }
 
 .masonry-grid {
-  columns: 3;
+  columns: 2;
   column-gap: 24px;
 }
 
@@ -633,14 +633,15 @@ footer {
 .masonry-group {
   column-span: all;
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 24px;
 }
 
 .masonry-group .masonry-item {
-  flex: 1;
+  flex: 1 1 calc(50% - 8px);
+  min-width: calc(50% - 8px);
   margin-bottom: 0;
-  min-width: 0;
 }
 
 /* =====================
