@@ -210,7 +210,6 @@ function renderYear(data, yearId) {
   }
 
   // Gallery
-  currentWorks = yearData.works;
   const grid = document.getElementById('masonry-grid');
   const gallerySection = document.getElementById('gallery-section');
 
@@ -218,7 +217,18 @@ function renderYear(data, yearId) {
   grid.innerHTML = '';
   gallerySection.style.display = 'block';
 
-  yearData.works.forEach((work, idx) => {
+  // Flatten works for lightbox (expand type:group entries)
+  const flatWorks = [];
+  yearData.works.forEach(work => {
+    if (work.type === 'group' && work.works) {
+      work.works.forEach(w => flatWorks.push(w));
+    } else {
+      flatWorks.push(work);
+    }
+  });
+  currentWorks = flatWorks;
+
+  function createMasonryItem(work, flatIdx) {
     const item = document.createElement('div');
     item.className = 'masonry-item';
     item.innerHTML = `
@@ -228,8 +238,43 @@ function renderYear(data, yearId) {
         <p>${work.material} &middot; ${work.size}</p>
       </div>
     `;
-    item.addEventListener('click', () => openLightbox(idx));
-    grid.appendChild(item);
+    item.addEventListener('click', () => openLightbox(flatIdx));
+    return item;
+  }
+
+  // Build display groups: batch consecutive same-group works or type:group
+  const displayGroups = [];
+  let currentGroup = null;
+  let flatIdx = 0;
+
+  yearData.works.forEach(work => {
+    if (work.type === 'group' && work.works) {
+      // Explicit group: always its own row
+      const startIdx = flatIdx;
+      displayGroups.push({ isGroup: true, items: work.works.map((w, i) => ({ work: w, idx: startIdx + i })) });
+      flatIdx += work.works.length;
+    } else {
+      const groupId = work.group || null;
+      if (groupId && currentGroup && currentGroup.groupId === groupId) {
+        currentGroup.items.push({ work, idx: flatIdx });
+      } else {
+        currentGroup = { groupId, isGroup: !!groupId, items: [{ work, idx: flatIdx }] };
+        displayGroups.push(currentGroup);
+      }
+      flatIdx++;
+    }
+  });
+
+  // Render
+  displayGroups.forEach(dg => {
+    if (dg.isGroup && dg.items.length > 1) {
+      const groupEl = document.createElement('div');
+      groupEl.className = 'masonry-group';
+      dg.items.forEach(({ work, idx }) => groupEl.appendChild(createMasonryItem(work, idx)));
+      grid.appendChild(groupEl);
+    } else {
+      dg.items.forEach(({ work, idx }) => grid.appendChild(createMasonryItem(work, idx)));
+    }
   });
 }
 

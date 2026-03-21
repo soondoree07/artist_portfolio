@@ -632,6 +632,22 @@ footer {
 }
 
 /* =====================
+   Masonry Group (나란히 연작)
+   ===================== */
+.masonry-group {
+  column-span: all;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.masonry-group .masonry-item {
+  flex: 1;
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+/* =====================
    Lightbox
    ===================== */
 .lightbox {
