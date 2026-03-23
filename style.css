@@ -589,13 +589,15 @@ footer {
 }
 
 .masonry-grid {
-  columns: 2;
-  column-gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .masonry-item {
-  break-inside: avoid;
-  margin-bottom: 24px;
+  flex: 0 0 calc(50% - 12px);
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -613,7 +615,7 @@ footer {
 }
 
 .masonry-item--solo {
-  column-span: all;
+  flex: 0 0 100%;
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
@@ -625,7 +627,8 @@ footer {
 }
 
 .masonry-item--small {
-  max-width: 240px;
+  flex: 0 0 auto;
+  width: 240px;
 }
 
 .masonry-caption {
@@ -643,17 +646,15 @@ footer {
    Masonry Group (나란히 연작)
    ===================== */
 .masonry-group {
-  column-span: all;
+  flex: 0 0 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 24px;
 }
 
 .masonry-group .masonry-item {
   flex: 1 1 calc(50% - 8px);
   min-width: calc(50% - 8px);
-  margin-bottom: 0;
 }
 
 .masonry-group--small {
@@ -854,7 +855,7 @@ footer {
   .back-btn { padding: 80px 40px 0; }
   .year-hero { padding: 32px 40px 60px; }
   .gallery-section { padding: 0 40px 100px; }
-  .masonry-grid { columns: 2; }
+  .masonry-grid { gap: 16px; }
   .lightbox-inner { grid-template-columns: 1fr; }
   .lightbox-img-wrap { max-height: 50vh; }
 }
@@ -897,7 +898,8 @@ footer {
   .year-hero { padding: 24px 24px 48px; }
   .year-meta { grid-template-columns: 1fr; gap: 24px; }
   .gallery-section { padding: 0 24px 80px; }
-  .masonry-grid { columns: 2; }
+  .masonry-grid { gap: 12px; }
+  .masonry-item { flex: 0 0 calc(50% - 6px); }
 
   /* Lightbox mobile */
   .lightbox { padding: 0; align-items: flex-start; overflow: hidden; }
@@ -937,6 +939,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .masonry-grid { columns: 1; }
+  .masonry-item { flex: 0 0 100%; }
   .hero-bg img:not(:first-child) { display: none; }
 }
