@@ -215,7 +215,6 @@ function renderYear(data, yearId) {
         <img src="${yearData.thumbnail}" alt="${yearData.year}년 대표 이미지" />
       </div>
       <div class="year-meta">
-        <div class="year-number">${yearData.year}</div>
         <p class="year-desc">${yearData.description}</p>
       </div>
     `;
