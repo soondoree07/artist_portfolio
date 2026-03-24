@@ -215,6 +215,7 @@ function renderYear(data, yearId) {
         <img src="${yearData.thumbnail}" alt="${yearData.year}년 대표 이미지" />
       </div>
       <div class="year-meta">
+        <div class="year-number">${yearData.year}</div>
         <p class="year-desc">${yearData.description}</p>
       </div>
     `;
@@ -247,7 +248,7 @@ function renderYear(data, yearId) {
     item.innerHTML = `
       <img src="${work.image}" alt="${work.title}" loading="lazy" />
       <div class="masonry-caption">
-        <p>${work.title} &nbsp;${work.material} &nbsp;${work.size} &nbsp;${work.year ?? yearData.year}</p>
+        <p>${work.title} &nbsp;${work.material} &nbsp;${work.size}</p>
       </div>
     `;
     item.addEventListener('click', () => openLightbox(flatIdx));

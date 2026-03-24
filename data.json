@@ -638,7 +638,7 @@
           "size": "100×45cm (ea., 4pieces)",
           "description": "",
           "image": "images/2017/그 겨울, 바람이 불다.jpg",
-          "group": "기억겨울"
+          "solo": true
         },
         {
           "title": "기억-찬란한 순간",
@@ -646,7 +646,7 @@
           "size": "100×45cm (ea., 4pieces)",
           "description": "",
           "image": "images/2017/기억-찬란한 순간.jpg",
-          "group": "기억겨울"
+          "solo": true
         },
         {
           "title": "기억의 물결(말말말)",
