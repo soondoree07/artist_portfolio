@@ -1179,49 +1179,56 @@
           "material": "Mixed Media",
           "size": "60×120cm",
           "description": "여러 사람들과의 관계들이 모여 만들어가는 나의 이야기, 그 두 번째 장입니다.",
-          "image": "images/2009/만들어가는 이야기II.jpg"
+          "image": "images/2009/만들어가는 이야기II.jpg",
+          "solo": true
         },
         {
           "title": "도도한 환상",
           "material": "Mixed Media",
           "size": "60×60cm",
           "description": "주목받고 싶은 욕망과 도도한 환상. 자신의 존재를 드러내고자 하는 내면의 갈망을 표현했습니다.",
-          "image": "images/2009/도도한 환상.jpg"
+          "image": "images/2009/도도한 환상.jpg",
+          "solo": true
         },
         {
           "title": "비밀의 화원",
           "material": "Mixed Media",
           "size": "60×60cm",
           "description": "보석같은 꽃들, 아름다움에의 추구. 내면 깊숙이 간직한 아름다운 세계를 표현했습니다.",
-          "image": "images/2009/비밀의 화원.jpg"
+          "image": "images/2009/비밀의 화원.jpg",
+          "solo": true
         },
         {
           "title": "나비의 꿈",
           "material": "Mixed Media",
           "size": "60×60cm",
           "description": "나비처럼 자유로운 영혼을 꿈꾸는 마음. 정형화된 구속으로부터 벗어나고자 하는 자유를 향한 갈망을 담았습니다.",
-          "image": "images/2009/나비의 꿈.jpg"
+          "image": "images/2009/나비의 꿈.jpg",
+          "solo": true
         },
         {
           "title": "비밀의 화원II",
           "material": "Mixed Media",
           "size": "60×60cm",
           "description": "비밀의 화원 두 번째. 숨겨진 아름다움과 내면의 정원을 더 깊이 탐구했습니다.",
-          "image": "images/2009/비밀의 화원II.jpg"
+          "image": "images/2009/비밀의 화원II.jpg",
+          "solo": true
         },
         {
           "title": "은근히 드러내기",
           "material": "Mixed Media",
           "size": "60×60cm",
           "description": "보일 듯 말 듯 아스라한 그리움. 드러내고 싶으면서도 숨기고 싶은 내면의 감정을 은근히 표현했습니다.",
-          "image": "images/2009/은근히 드러내기.jpg"
+          "image": "images/2009/은근히 드러내기.jpg",
+          "solo": true
         },
         {
           "title": "구름시리즈",
           "material": "Mixed Media",
           "size": "30×30cm 5pieces",
           "description": "한땀한땀 구름을 엮으며 내 안에 떠도는 구름같은 헛된 꿈들, 잡힐 듯 잡히지 않는 것들을 담았습니다.",
-          "image": "images/2009/구름시리즈.jpg"
+          "image": "images/2009/구름시리즈.jpg",
+          "solo": true
         }
       ]
     },
