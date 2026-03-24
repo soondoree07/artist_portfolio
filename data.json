@@ -914,16 +914,25 @@
       "works": [
         {
           "title": "구름에 기대 꿈을 그리다",
-          "material": "Mixed Media",
+          "material": "",
           "size": "100×45cm (ea., 15pieces)",
+          "solo": true,
           "description": "구름이 되어 꿈을 그려가는 시리즈. 손에 잡힐 듯 잡히지 않는 구름에 기대어 꿈을 향해 한땀한땀 다가가는 마음을 담았습니다.",
-          "image": "images/2011/구름에 기대 꿈을 그리다_전체.jpg",
-          "solo": true
+          "image": "images/2011/구름에 기대 꿈을 그리다_전체.jpg"
+        },
+        {
+          "title": "구름에 기대 꿈을 그리다1",
+          "material": "",
+          "size": "",
+          "solo": true,
+          "description": "",
+          "image": "images/2011/구름에 기대 꿈을 그리다1.jpg"
         },
         {
           "title": "구름에 기대 꿈을 그리다2",
           "material": "",
           "size": "",
+          "solo": true,
           "description": "구름에 기대 꿈을 그리다 연작 두 번째.",
           "image": "images/2011/구름에 기대 꿈을 그리다2.jpg"
         },
@@ -931,6 +940,7 @@
           "title": "구름에 기대 꿈을 그리다3",
           "material": "",
           "size": "",
+          "solo": true,
           "description": "구름에 기대 꿈을 그리다 연작 세 번째.",
           "image": "images/2011/구름에 기대 꿈을 그리다3.jpg"
         },
@@ -938,6 +948,7 @@
           "title": "구름에 기대 꿈을 그리다4",
           "material": "",
           "size": "",
+          "solo": true,
           "description": "구름에 기대 꿈을 그리다 연작 네 번째.",
           "image": "images/2011/구름에 기대 꿈을 그리다4.jpg"
         },
