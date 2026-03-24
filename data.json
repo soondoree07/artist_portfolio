@@ -750,7 +750,8 @@
           "size": "160×80cm",
           "description": "",
           "image": "images/2015/Blooming.jpg",
-          "year": 2015
+          "year": 2015,
+          "solo": true
         },
         {
           "title": "Fresh",
@@ -758,7 +759,8 @@
           "size": "80×80cm",
           "description": "",
           "image": "images/2015/Fresh.jpg",
-          "year": 2015
+          "year": 2015,
+          "solo": true
         },
         {
           "title": "기억-봄날",
@@ -766,7 +768,8 @@
           "size": "100×45cm (ea., 4pieces)",
           "description": "",
           "image": "images/2015/기억-봄날.jpg",
-          "year": 2015
+          "year": 2015,
+          "solo": true
         },
         {
           "title": "산-그림자",
@@ -774,7 +777,8 @@
           "size": "200×40cm",
           "description": "",
           "image": "images/2015/산-그림자.jpg",
-          "year": 2015
+          "year": 2015,
+          "solo": true
         },
         {
           "title": "향기로운산",
@@ -782,7 +786,8 @@
           "size": "100×135cm",
           "description": "",
           "image": "images/2015/향기로운산.jpg",
-          "year": 2015
+          "year": 2015,
+          "solo": true
         },
         {
           "title": "여운1",
@@ -790,7 +795,8 @@
           "size": "",
           "description": "",
           "image": "images/2014/여운1.jpg",
-          "year": 2014
+          "year": 2014,
+          "solo": true
         },
         {
           "title": "여운2",
@@ -798,7 +804,8 @@
           "size": "",
           "description": "",
           "image": "images/2014/여운2.jpg",
-          "year": 2014
+          "year": 2014,
+          "solo": true
         }
       ]
     },
