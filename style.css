@@ -662,12 +662,6 @@ footer {
 .masonry-group .masonry-item {
   flex: 1 1 calc(50% - 8px);
   min-width: calc(50% - 8px);
-  overflow: hidden;
-}
-
-.masonry-group .masonry-item img {
-  height: 100%;
-  object-fit: cover;
 }
 
 .masonry-group--small {
