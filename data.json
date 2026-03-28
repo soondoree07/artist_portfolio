@@ -339,7 +339,7 @@
         {
           "title": "Blossom 2",
           "material": "Mixed Media",
-          "size": "72.7×53cm",
+          "size": "53×72.7cm",
           "description": "Blossom 연작 두 번째. 과거를 소환하는 민화의 형식과 현대적 바느질 표현이 이질적으로 공존하며, 그 사이에서 정중동이 드러납니다.",
           "image": "images/2023/Blossom 2.jpg",
           "group": "blossom-falling"
@@ -362,7 +362,7 @@
         {
           "title": "Blossom",
           "material": "Mixed Media",
-          "size": "91×65.2cm",
+          "size": "65.2×91cm",
           "description": "정적 속에서 피어오르는 꽃. 연꽃처럼 고요한 연못에서 피어나는 생명의 동(動)을 담았습니다. 바느질의 결과 민화의 형식이 나란히 스며듭니다.",
           "image": "images/2023/Blossom.jpg"
         },
@@ -610,7 +610,7 @@
         {
           "title": "Hole",
           "material": "Mixed Media",
-          "size": "240×120cm",
+          "size": "120×240cm",
           "description": "",
           "image": "images/2017/Hole.jpg",
           "solo": true
@@ -660,7 +660,7 @@
         {
           "title": "기억의 물결(말말말)",
           "material": "Mixed Media",
-          "size": "160×80cm",
+          "size": "80×160cm",
           "description": "",
           "image": "images/2017/기억의 물결(말말말).jpg"
         },
@@ -675,7 +675,7 @@
         {
           "title": "인생예찬1",
           "material": "Mixed Media",
-          "size": "180×100cm",
+          "size": "100×180cm",
           "description": "",
           "image": "images/2017/인생예찬1.jpg",
           "group": "인생예찬"
@@ -683,7 +683,7 @@
         {
           "title": "인생예찬2",
           "material": "Mixed Media",
-          "size": "180×100cm",
+          "size": "100×180cm",
           "description": "",
           "image": "images/2017/인생예찬2.jpg",
           "group": "인생예찬"
@@ -756,7 +756,7 @@
         {
           "title": "Blooming",
           "material": "Mixed Media",
-          "size": "160×80cm",
+          "size": "80×160cm",
           "description": "",
           "image": "images/2015/Blooming.jpg",
           "year": 2015,
@@ -783,7 +783,7 @@
         {
           "title": "산-그림자",
           "material": "Mixed Media",
-          "size": "200×40cm",
+          "size": "40×200cm",
           "description": "",
           "image": "images/2015/산-그림자.jpg",
           "year": 2015,
@@ -792,7 +792,7 @@
         {
           "title": "향기로운산",
           "material": "Mixed Media",
-          "size": "100×135cm",
+          "size": "135×100cm",
           "description": "",
           "image": "images/2015/향기로운산.jpg",
           "year": 2015,
@@ -1012,7 +1012,7 @@
         {
           "title": "나비 날다 시리즈(1)",
           "material": "Mixed Media",
-          "size": "180×100cm (ea.)",
+          "size": "100×180cm (ea.)",
           "description": "나비가 되어 자유롭게 날다. 끊임없이 갈구하는 꿈을 향해 힘차게 날아오르는 순간을 대형 화면에 담았습니다.",
           "image": "images/2011/나비 날다 시리즈(1).jpg",
           "group": "나비날다"
