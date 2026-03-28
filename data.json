@@ -262,7 +262,7 @@
           "size": "45.5×53cm",
           "description": "보일 듯 말 듯 수수께끼를 풀어보라고 속삭이는 것들. 자연이 품고 있는 깊은 의미를 향해 마음 깊은 곳을 건드리는 작품입니다.",
           "image": "images/2024/숨겨진 의미.jpg",
-          "solo": true
+          "compact": true
         },
         {
           "title": "스러지는 것",
