@@ -216,13 +216,12 @@ function computeSizeNorm(data) {
   return { minDim: minDim === Infinity ? 0 : minDim, maxDim };
 }
 
-function calcDisplayWidth(sizeStr, norm) {
+function calcDisplayWidth(sizeStr) {
   const d = parseWorkDims(sizeStr);
-  if (!d || norm.maxDim === 0) return 720;
+  if (!d) return 720;
   const dim = Math.max(d.w, d.h);
-  const t = norm.maxDim === norm.minDim ? 0.5
-            : (dim - norm.minDim) / (norm.maxDim - norm.minDim);
-  return Math.round(360 + t * 660); // 360px ~ 1020px
+  // 1cm = 6px, 최소 320px, 최대 1050px (비율 그대로 유지)
+  return Math.min(1050, Math.max(320, Math.round(dim * 6)));
 }
 
 /* =====================
@@ -278,8 +277,6 @@ function renderYear(data, yearId) {
   });
   currentWorks = flatWorks;
 
-  const norm = computeSizeNorm(data);
-
   function createMasonryItem(work, flatIdx, options) {
     const item = document.createElement('div');
     item.className = 'masonry-item';
@@ -291,7 +288,7 @@ function renderYear(data, yearId) {
       item.style.overflow = 'hidden';
     } else {
       // 독립 작품: 물리적 크기 기반 비례 너비
-      const w = calcDisplayWidth(work.size, norm);
+      const w = calcDisplayWidth(work.size);
       item.style.flex = '0 0 100%';
       item.style.maxWidth = w + 'px';
       item.style.marginLeft = 'auto';
