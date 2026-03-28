@@ -243,6 +243,8 @@ function renderYear(data, yearId) {
   function createMasonryItem(work, flatIdx) {
     const item = document.createElement('div');
     item.className = work.solo ? 'masonry-item masonry-item--solo'
+                   : work.large ? 'masonry-item masonry-item--large'
+                   : work.compact ? 'masonry-item masonry-item--compact'
                    : work.small ? 'masonry-item masonry-item--small'
                    : 'masonry-item';
     item.innerHTML = `

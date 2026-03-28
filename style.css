@@ -621,6 +621,20 @@ footer {
   margin-right: auto;
 }
 
+.masonry-item--compact {
+  flex: 0 0 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.masonry-item--large {
+  flex: 0 0 100%;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .masonry-item--solo img {
   width: 100%;
   height: auto;
