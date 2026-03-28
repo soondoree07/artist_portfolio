@@ -277,24 +277,9 @@ function renderYear(data, yearId) {
   });
   currentWorks = flatWorks;
 
-  function createMasonryItem(work, flatIdx, options) {
+  function createMasonryItem(work, flatIdx) {
     const item = document.createElement('div');
     item.className = 'masonry-item';
-
-    if (options && options.widthPct !== undefined) {
-      // 그룹 내 비율 배치
-      item.style.flex = `0 0 calc(${options.widthPct}% - 8px)`;
-      item.style.minWidth = '0';
-      item.style.overflow = 'hidden';
-    } else {
-      // 독립 작품: 물리적 크기 기반 비례 너비
-      const w = calcDisplayWidth(work.size);
-      item.style.flex = '0 0 100%';
-      item.style.maxWidth = w + 'px';
-      item.style.marginLeft = 'auto';
-      item.style.marginRight = 'auto';
-    }
-
     item.innerHTML = `
       <img src="${work.image}" alt="${work.title}" loading="lazy" />
       <div class="masonry-caption">
@@ -330,26 +315,7 @@ function renderYear(data, yearId) {
 
   // Render
   displayGroups.forEach(dg => {
-    if (dg.isGroup && dg.items.length > 1) {
-      const groupEl = document.createElement('div');
-      groupEl.className = 'masonry-group';
-
-      // 물리적 가로(두 번째 숫자) 비율로 flex-basis 계산
-      const totalW = dg.items.reduce((sum, { work }) => {
-        const d = parseWorkDims(work.size);
-        return sum + (d ? d.h : 50);
-      }, 0);
-
-      dg.items.forEach(({ work, idx }) => {
-        const d = parseWorkDims(work.size);
-        const pct = d ? (d.h / totalW) * 100 : 50;
-        groupEl.appendChild(createMasonryItem(work, idx, { widthPct: pct }));
-      });
-
-      grid.appendChild(groupEl);
-    } else {
-      dg.items.forEach(({ work, idx }) => grid.appendChild(createMasonryItem(work, idx)));
-    }
+    dg.items.forEach(({ work, idx }) => grid.appendChild(createMasonryItem(work, idx)));
   });
 }
 
