@@ -244,9 +244,15 @@ function renderYear(data, yearId) {
   setTextById('nav-name', artist.name);
   setTextById('footer-text', `\u00A9 ${new Date().getFullYear()} ${artist.name}. All rights reserved.`);
 
-  // Year Hero (라이트박스만 사용하므로 숨김)
+  // 연도 페이지 배경 — nav/back-btn/footer 숨기고 흰 배경만 표시
   const heroEl = document.getElementById('year-hero');
   if (heroEl) heroEl.style.display = 'none';
+  const nav = document.getElementById('main-nav');
+  if (nav) nav.style.display = 'none';
+  const backBtn = document.querySelector('.back-btn');
+  if (backBtn) backBtn.style.display = 'none';
+  const footer = document.querySelector('footer');
+  if (footer) footer.style.display = 'none';
 
   // Gallery (currentWorks 구성에만 사용, 화면에는 표시 안 함)
   const grid = document.getElementById('masonry-grid');
