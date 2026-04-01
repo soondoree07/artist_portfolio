@@ -244,27 +244,16 @@ function renderYear(data, yearId) {
   setTextById('nav-name', artist.name);
   setTextById('footer-text', `\u00A9 ${new Date().getFullYear()} ${artist.name}. All rights reserved.`);
 
-  // Year Hero
+  // Year Hero (라이트박스만 사용하므로 숨김)
   const heroEl = document.getElementById('year-hero');
-  if (heroEl) {
-    heroEl.innerHTML = `
-      <div class="year-hero-img">
-        <img src="${yearData.thumbnail}" alt="${yearData.year}년 대표 이미지" />
-      </div>
-      <div class="year-meta">
-        <div class="year-number">${yearData.year}</div>
-        <p class="year-desc">${yearData.description}</p>
-      </div>
-    `;
-  }
+  if (heroEl) heroEl.style.display = 'none';
 
-  // Gallery
+  // Gallery (currentWorks 구성에만 사용, 화면에는 표시 안 함)
   const grid = document.getElementById('masonry-grid');
   const gallerySection = document.getElementById('gallery-section');
 
   if (!grid || !gallerySection) return;
   grid.innerHTML = '';
-  gallerySection.style.display = 'block';
 
   // Flatten works for lightbox (expand type:group entries)
   const flatWorks = [];
