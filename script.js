@@ -336,6 +336,10 @@ function openLightbox(index) {
 }
 
 function closeLightbox() {
+  if (document.getElementById('year-hero')) {
+    window.history.back();
+    return;
+  }
   document.getElementById('lightbox').classList.remove('active');
   document.body.style.overflow = '';
 }
